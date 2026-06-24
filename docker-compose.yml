@@ -1,0 +1,34 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: brasa-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb-data:/data/db
+
+  api:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    environment:
+      PORT: 5050
+      MONGO_URI: mongodb://mongo:27017/brasa-barrio
+      WHATSAPP_PHONE: 584120000000
+      CORS_ORIGIN: http://localhost:4173,http://localhost:5173
+    depends_on:
+      - mongo
+    ports:
+      - "5050:5050"
+
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+      args:
+        VITE_API_URL: http://localhost:5050/api
+    depends_on:
+      - api
+    ports:
+      - "4173:4173"

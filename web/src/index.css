@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Spectral:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #13100d;
+  --bg-deep: #0d0b09;
+  --panel: rgba(28, 21, 17, 0.86);
+  --text-main: #efe3d0;
+  --text-soft: #d4c3ac;
+  --muted: #9f947f;
+  --ink: #23170f;
+  --accent-burnt: #d46a2e;
+  --accent-pickle: #6f8f47;
+  --font-display: "Bowlby One SC", cursive;
+  --font-body: "Spectral", serif;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(111, 143, 71, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(212, 106, 46, 0.24), transparent 26%),
+    linear-gradient(135deg, rgba(239, 227, 208, 0.03) 25%, transparent 25%) 0 0 / 24px 24px,
+    linear-gradient(180deg, #17120f 0%, #0b0907 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
